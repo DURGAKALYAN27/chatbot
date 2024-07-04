@@ -64,7 +64,7 @@ print(completion.choices[0].message)
 
 8. Run the app:
 
-This step depends on the app itself. If the code uses flask (like the chat-basic example), you can run:
+In any of the folders, run:
 
 ```bash
 $ flask run
