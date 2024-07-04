@@ -1,0 +1,13 @@
+{
+
+    "status": "SUCCESS",
+
+    "notices": null,
+
+    "data": "switch IP : 172.22.39.161 \nswitch name : PFS5010IN-dot161 \nswitch version :6.5.0.73-e4813727  connected or active state\n\nswitch IP : 172.22.38.33 \nswitch name : PFS5030-32X \nswitch version :6.4.1.38-012720e5  connected or active state\n\nswitch IP : 172.22.31.22 \nswitch name : PFS5010-172.22.31.22 \nswitch version :6.5.0.80-4da99dd3  connected or active state\n\nswitch IP : 172.22.38.103 \nswitch name : PFS5010-BEC-Labs \nswitch version :6.4.1.38-012720e5  connected or active state\n\nswitch IP: 172.22.38.36 \nswitch name : PFS5041-32D \nswitch version :6.4.1.38-012720e5  connected or active state\n\ntotal connected  switches or device 5\ntotal disconnected or down switches or device 0\n",
+
+    "page": null,
+
+    "error": false
+
+}
