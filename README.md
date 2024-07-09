@@ -72,8 +72,24 @@ $ flask run
 
 You should now be able to access the app from your browser at the following URL: [http://localhost:5000](http://localhost:5000)!
 
-If the code is just a simple Python script, you can run it with:
+If the code is just a simple Python script (in document_read), you can run it with:
 
 ```bash
 $ python my_file.py
 ```
+
+## Guide for Prompts
+
+**For retrieval_and_graph:**
+1. A phrase that contains the words "Disk space usages" and a random location such as India, Bangalore etc.
+2. Anything related to the contents of the documents within the assets folder.
+
+**For display_images:**
+Any phrase that contains the word "apples", "bananas" or "carrots".
+
+**For document_read:**
+Anything related to the uploaded user guide.
+Eg: 
+1. Can you tell me about the monitor life cycle?
+2. Retrieve basic information about the switch.
+3. After the first time the admin use logs into a fabric manager appliance, the user is required to change the password. What should be the strength of the password?
