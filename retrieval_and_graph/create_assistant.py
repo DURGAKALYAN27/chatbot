@@ -69,7 +69,7 @@ assistant = client.beta.assistants.create(
 vector_store = client.beta.vector_stores.create(name="Website Data")
  
 
-file_paths = ["assets/about.txt", "assets/ng1.txt", "assets/pfs.txt", "assets/ports.json", "assets/switches.json"]
+file_paths = ["assets/nG_PFS_FabricMgmt_651_AG_733-1957.pdg", "assets/PFOS_651_UG_733-1944-A.pdf", "assets/PFOS_651_CLI_RG_733-1945-A.pdf"]
 file_streams = [open(path, "rb") for path in file_paths]
  
 
