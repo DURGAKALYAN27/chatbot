@@ -73,7 +73,7 @@ def chat():
     
     content = request.json["message"]
 
-    response = openai.Completion.create(
+    response = client.Completion.create(
     engine="text-davinci-003",
     prompt=content,
     max_tokens=150
