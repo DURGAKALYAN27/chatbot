@@ -1,14 +1,15 @@
 from flask import (Flask, render_template, request, jsonify)
-from openai import AssistantEventHandler, OpenAI
+from openai import AssistantEventHandler
 from typing_extensions import override
 from icecream import ic
 import json
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import openai
 
 
-client = OpenAI()
+# client = OpenAI()
 
 app = Flask(__name__)
 
@@ -18,7 +19,7 @@ functionflag = False
 
 chat_history = [{"role": "assistant", "content": "Hello! I am the Netscout Assistant! How can I help you?"}]
 
-thread = client.beta.threads.create(
+thread = openai.beta.threads.create(
     messages=chat_history
 )
 
@@ -99,7 +100,7 @@ def chat():
     content = request.json["message"]
     
     # Use OpenAI's Completion API to generate a response
-    response = client.Completion.create(
+    response = openai.completions.create(
         model="davinci-002",
         prompt=content,
         max_tokens=150
