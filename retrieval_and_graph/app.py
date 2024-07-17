@@ -66,26 +66,57 @@ def make_diskSpaceUsage_graph(loc: str) -> str:
 def index():
     return render_template("index.html", chat_history=chat_history)
 
+# @app.route("/chat", methods=["POST"])
+# def chat():
+#     global functionflag
+#     functionflag = False
+    
+#     content = request.json["message"]
+#     response = client.completions.create(
+#     model="davinci-002",
+#     prompt=content,
+#     max_tokens=150
+# )
+#     # Format the response
+#     formatted_response = response.choices[0].text.strip()
+#     # Print the formatted response
+#     print(formatted_response)
+    
+#     client.beta.threads.messages.create(
+#         thread_id=thread.id,
+#         role="user",
+#         content=response
+#     )
+    
+#     # Return the response in JSON format
+#     return jsonify(success=True, response=formatted_response)
+
 @app.route("/chat", methods=["POST"])
 def chat():
     global functionflag
     functionflag = False
     
     content = request.json["message"]
-    response = client.completions.create(
-    model="davinci-002",
-    prompt=content,
-    max_tokens=150
-)
+    
+    # Use OpenAI's Completion API to generate a response
+    response = client.Completion.create(
+        model="davinci-002",
+        prompt=content,
+        max_tokens=150
+    )
+    
     # Format the response
     formatted_response = response.choices[0].text.strip()
-    # Print the formatted response
+    
+    # Print the formatted response (for debugging purposes)
     print(formatted_response)
     
+    # Assuming thread and role variables are defined elsewhere
+    # Send the formatted response as a message in the thread
     # client.beta.threads.messages.create(
     #     thread_id=thread.id,
     #     role="user",
-    #     content=content
+    #     content=formatted_response
     # )
     
     # Return the response in JSON format
