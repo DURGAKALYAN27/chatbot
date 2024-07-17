@@ -6,6 +6,7 @@ import json
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import textwrap
 
 
 client = OpenAI()
@@ -72,11 +73,11 @@ def chat():
     functionflag = False
     
     content = request.json["message"]
-    
+    formatted_response = textwrap.dedent(content).strip() 
     client.beta.threads.messages.create(
         thread_id=thread.id,
         role="user",
-        content=content
+        formatted_response=formatted_response
     )
     
     return jsonify(success=True)
