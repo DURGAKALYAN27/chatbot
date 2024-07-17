@@ -73,7 +73,7 @@ def chat():
     
     content = request.json["message"]
 
-    response = client.Completion.create(
+    response = client.completions.create(
     engine="text-davinci-003",
     prompt=content,
     max_tokens=150
