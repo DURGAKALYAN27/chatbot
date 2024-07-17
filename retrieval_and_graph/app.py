@@ -73,13 +73,15 @@ def chat():
     
     content = request.json["message"]
 
-    response = OpenAI.Completion.create(
+    response = openai.Completion.create(
     engine="text-davinci-003",
     prompt=content,
     max_tokens=150
 )
+    # Format the response
+    formatted_response = response.choices[0].text.strip()
     # Print the formatted response
-    print(response.choices[0].text.strip())
+    print(formatted_response)
     
     # client.beta.threads.messages.create(
     #     thread_id=thread.id,
