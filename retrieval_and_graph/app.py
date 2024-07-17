@@ -157,7 +157,7 @@ def stream():
             self.submit_tool_outputs(tool_outputs, run_id)
         
         def submit_tool_outputs(self, tool_outputs, run_id):
-            with client.beta.threads.runs.submit_tool_outputs_stream(
+            with openai.beta.threads.runs.submit_tool_outputs_stream(
                 thread_id=self.current_run.thread_id,
                 run_id=self.current_run.id,
                 tool_outputs=tool_outputs,
@@ -173,7 +173,7 @@ def stream():
                 response = message.content[0].text.value
     
     
-    with client.beta.threads.runs.stream(
+    with openai.beta.threads.runs.stream(
         thread_id=thread.id,
         assistant_id="asst_qbKv0cuYmYjW1ydvKj24vr9V",
         event_handler=EventHandler()
