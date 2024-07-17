@@ -67,9 +67,23 @@ assistant = client.beta.assistants.create(
 )
 
 vector_store = client.beta.vector_stores.create(name="Website Data")
- 
 
-file_paths = ["assets/nG_PFS_FabricMgmt_651_AG_733-1957.pdg", "assets/PFOS_651_UG_733-1944-A.pdf", "assets/PFOS_651_CLI_RG_733-1945-A.pdf"]
+def get_file_paths(folder_path):
+    # Collect all PDF files
+    pdf_files = glob.glob(os.path.join(folder_path, '*.pdf'))
+    # Collect all text files
+    text_files = glob.glob(os.path.join(folder_path, '*.txt'))
+    
+    # Combine the lists
+    all_files = pdf_files + text_files
+    
+    return all_files
+
+folder_path = "assets"  # Specify your folder path here
+file_paths = get_file_paths(folder_path)
+print(file_paths)
+ 
+# file_paths = ["assets/nG_PFS_FabricMgmt_651_AG_733-1957.pdg", "assets/PFOS_651_UG_733-1944-A.pdf", "assets/PFOS_651_CLI_RG_733-1945-A.pdf"]
 file_streams = [open(path, "rb") for path in file_paths]
  
 
